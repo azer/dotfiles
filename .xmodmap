@@ -1,1 +1,6 @@
-keycode 135 = Super_R
+remove Lock = Caps_Lock
+remove Control = Control_R
+keysym Caps_Lock = Control_R
+add Lock = Caps_Lock
+add Control = Control_R
+keycode 96 = Insert

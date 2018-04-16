@@ -12,10 +12,9 @@
         ci              = commit
         co              = checkout
         br              = branch
-        lg              = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        l               = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
         fix             = commit --amend -C HEAD
-        rv              = remote --verbose
-        r               = remote
+        r              = remote --verbose
         staged          = diff --cached
         unstage         = reset HEAD
         undo-commit     = reset --soft HEAD^
@@ -48,6 +47,7 @@
 	user = azer
 [core]
 	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [help]
   autocorrect = 1

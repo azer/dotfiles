@@ -45,8 +45,10 @@ export PATH=$PATH:~/opt/leiningen
 alias clj=clj-env-dir
 
 # ANDROID
-export PATH=$PATH:~/opt/android/tools
-export PATH=$PATH:~/opt/android/platform-tools
+export PATH=$PATH:~/code/AndroidSDK/tools
+export PATH=$PATH:~/code/AndroidSDK/platform-tools
+export ANDROID_HOME=/home/azer/code/AndroidSDK
+export ANDROID_SDK_HOME=/home/azer/.android
 
 TZ='US/Pacific'; export TZ
 
