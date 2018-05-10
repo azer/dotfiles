@@ -404,7 +404,7 @@ menu-2-1-exec = menu-open-0
 [module/network]
 type = custom/script
 exec = ~/.config/polybar/network.sh
-interval = 3
+interval = 1
 
 [settings]
 screenchange-reload = true

@@ -82,13 +82,18 @@ sending () {
 }
 
 gateway=`ip r | grep default | cut -d ' ' -f 3`
+if [ -z "$gateway" -a "$gateway" != " " ]; then
+    echo "Offline"
+    exit 0
+fi
+
 test=$(ping -q -w 1 -c 1 $gateway> /dev/null && echo 1 || echo 0)
 interface=$(route | grep '^default' | grep -o '[^ ]*$')
 receiving=$(receiving $interface)
 sending=$(sending $interface)
 network="$receiving"
 
-if [[ -z "${network// }" ]]; then
+if [[ -n "${network// }" ]]; then
     network="$receiving $sending"
 else
     network="$sending"
