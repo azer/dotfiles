@@ -39,6 +39,13 @@ bindsym Shift+Print 		exec --no-startup-id scrot -s
 for_window [class="feh"] floating enable
 for_window [class="feh"] border pixel 0
 
+# spotify should live in scratchpad and be binded to mod+m
+for_window [class="Spotify"] floating enable
+for_window [class="Spotify"] border pixel 0
+for_window [class="Spotify"] resize set 1100 800
+for_window [class="Spotify"] move scratchpad
+bindsym $mod+m [class="Spotify"] scratchpad show; [class="Spotify"] move position center
+
 # Handy console living in scratchpad
 for_window [instance="^scratch_console$"] floating enable
 for_window [instance="^scratch_console$"] resize set 1000 600
@@ -46,7 +53,7 @@ for_window [instance="^scratch_console$"] move scratchpad
 for_window [instance="^scratch_console$"] border pixel 0
 
 bindsym $mod+t			[instance="^scratch_console$"] scratchpad show; [instance="^scratch_console$"] move position center
-exec --no-startup-id $term -name scratch_console -e ~/localbin/scratch-console
+exec_always --no-startup-id $term -name scratch_console -e $SHELL -c "tmux attach-session -t console || tmux new-session -s console"
 
 # Calculator
 for_window [instance="^qalculate-gtk$"] floating enable
@@ -55,12 +62,19 @@ for_window [instance="^qalculate-gtk$"] move scratchpad
 for_window [instance="^qalculate-gtk$"] border pixel 0
 
 bindsym $mod+c			[instance="^qalculate-gtk"] scratchpad show; [instance="^qalculate-gtk"] move position center
-exec --no-startup-id qalculate-gtk
+exec_always --no-startup-id qalculate-gtk
 
 # Network bindings
-bindsym $mod+w			exec $term -e nmtui connect
 bindsym $mod+Shift+w			exec --no-startup-id sudo systemctl restart NetworkManager
-bindsym $mod+Shift+t		gaps inner current set 5; gaps outer current set 5
+
+# Wifi Manager living in scratchpad
+for_window [instance="^scratch_wifi$"] floating enable
+for_window [instance="^scratch_wifi$"] resize set 1000 600
+for_window [instance="^scratch_wifi$"] move scratchpad
+for_window [instance="^scratch_wifi$"] border pixel 0
+
+bindsym $mod+w			[instance="^scratch_wifi$"] scratchpad show; [instance="^scratch_wifi$"] move position center
+exec_always --no-startup-id $term -name scratch_wifi -e nmtui connect
 
 # Music controls
 bindsym XF86AudioMute		exec --no-startup-id amixer sset Master toggle
