@@ -15,6 +15,9 @@ URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 URxvt.scrollBar:           false
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
 URxvt.internalBorder:      3
 URxvt.externalBorder:      0
 URxvt.highlightSelection:  true
