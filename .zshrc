@@ -22,7 +22,7 @@ export EDITOR=vi
 export TERM=rxvt-unicode
 
 # ALIASES
-alias ls='exa -l --color=always --color-scale'
+alias ls='ls -lah --color=always'
 alias today="date '+%d%h%y'"
 alias mess='clear ; tail -f /var/log/messages'
 alias c='clear; pwd'
