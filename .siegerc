@@ -1,7 +1,0 @@
-verbose = false
-logfile = ${HOME}/siege.log
-cache = false
-concurrent = 50
-time = 5M
-#timeout = 3
-benchmark = true
